@@ -36,6 +36,5 @@ jobs:
         run: |
           aws s3 sync public/ s3://dangunswebsite --delete
 
-          - name: Invalidate CloudFront
-          run: |
-            aws cloudfront create-invalidation --distribution-id EWNUNWL7U0S37 --paths "/*"
+      - name: Invalidate CloudFront
+        run: aws cloudfront create-invalidation --distribution-id EWNUNWL7U0S37 --paths "/*"
