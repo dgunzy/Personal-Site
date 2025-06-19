@@ -1,10 +1,8 @@
 ---
-title: "About Me"
-date: 2024-01-01
+title: "About"
+date: 2025-06-19
 ShowToc: false
 ---
-
-## Current Focus
 
 Currently working at RBC on their Kubernetes Platform, focusing on:
 
