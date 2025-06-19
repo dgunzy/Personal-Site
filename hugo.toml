@@ -1,0 +1,108 @@
+baseURL = "https://danguns.ca/"
+title = "Dan Guns"
+languageCode = "en-us"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[params]
+env = "production"
+title = "Dan Guns"
+description = "Kubernetes Platform Engineer - NSCC IT Programming graduate working at RBC"
+keywords = ["kubernetes", "devops", "programming", "platform engineer"]
+author = "Dan Guns"
+images = ["/images/headshot.jpg"]
+
+defaultTheme = "auto"
+disableThemeToggle = false
+
+ShowReadingTime = false
+ShowShareButtons = false
+ShowPostNavLinks = false
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = false
+ShowRssButtonInSectionTermList = false
+UseHugoToc = true
+disableSpecial1stPost = false
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = false
+showtoc = false
+tocopen = false
+
+# Profile Mode Configuration
+[params.profileMode]
+enabled = true
+title = "Dan Guns"
+subtitle = "Kubernetes Platform Engineer"
+imageUrl = "/images/headshot.jpg"
+imageTitle = "Dan Guns"
+imageWidth = 200
+imageHeight = 200
+
+[[params.profileMode.buttons]]
+name = "GitHub"
+url = "https://github.com/dgunzy/"
+
+[[params.profileMode.buttons]]
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/daniel-guns-901342257/"
+
+[[params.profileMode.buttons]]
+name = "About"
+url = "/about/"
+
+[[params.profileMode.buttons]]
+name = "Open Source"
+url = "/open-source/"
+
+[params.homeInfoParams]
+Title = "Hey there! 👋"
+Content = """
+I'm **Dan Guns**, a Kubernetes Platform Engineer at RBC. 
+
+I'm an NSCC IT Programming graduate who loves problem solving, coding, and learning about cool tools like Kubernetes!
+
+Check out my projects on [GitHub](https://github.com/dgunzy/) or connect with me on [LinkedIn](https://www.linkedin.com/in/daniel-guns-901342257/).
+"""
+imageUrl = "/images/headshot1.jpg"
+imageWidth = 200
+imageHeight = 200
+imageTitle = "Dan Guns"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/dgunzy/"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/daniel-guns-901342257/"
+
+[menu]
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "open-source"
+name = "Open Source"
+url = "/open-source/"
+weight = 20
+
+[[menu.main]]
+identifier = "github"
+name = "GitHub"
+url = "https://github.com/dgunzy/"
+weight = 30
