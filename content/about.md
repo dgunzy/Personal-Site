@@ -4,11 +4,12 @@ date: 2025-06-19
 ShowToc: false
 ---
 
-Currently working at RBC on their Kubernetes Platform, focusing on:
+Currently working at RBC Capital Markets on their Kubernetes Platform, focusing on:
 
-- Kubernetes platform engineering
-- Programming and containerization
-- Working with FluxCD
+- Kubernetes platform engineering and GitOps
+- FluxCD — continuous delivery for Kubernetes
+- Platform tooling, automation, and developer experience
+- Open source contributions to the Flux ecosystem
 
 ## Background
 
@@ -18,8 +19,8 @@ Working with people and collaborating is also something I value, and I enjoy wor
 
 ## Education & Certifications
 
-- **NSCC IT Programming Diploma** - Honours - Presidents List
-- **AWS Practitioner Certificate** - Complete
+- **NSCC IT Programming Diploma** — Honours, President's List
+- **AWS Cloud Practitioner** — Certified
 
 ## Get in Touch
 
