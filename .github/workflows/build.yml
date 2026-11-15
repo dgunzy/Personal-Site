@@ -4,37 +4,50 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: site-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7.0.1
         with:
           submodules: true
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3.2.1
         with:
-          hugo-version: "latest"
+          hugo-version: "0.170.0"
           extended: true
 
       - name: Build
-        run: hugo --minify
+        run: |
+          hugo --minify --panicOnWarning
+          test -s public/index.html
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: aws-actions/configure-aws-credentials@v6.3.0
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ca-central-1
 
       - name: Sync to S3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
           aws s3 sync public/ s3://dangunswebsite --delete
 
       - name: Invalidate CloudFront
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: aws cloudfront create-invalidation --distribution-id EWNUNWL7U0S37 --paths "/*"

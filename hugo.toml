@@ -1,6 +1,6 @@
 baseURL = "https://danguns.ca/"
 title = "Dan Guns"
-languageCode = "en-us"
+locale = "en-US"
 theme = "PaperMod"
 
 enableRobotsTXT = true
@@ -19,17 +19,18 @@ noClasses = false
 [params]
 env = "production"
 title = "Dan Guns"
-description = "Kubernetes Platform Engineer - NSCC IT Programming graduate working at RBC"
-keywords = ["kubernetes", "devops", "programming", "platform engineer"]
+description = "Dan Guns — Kubernetes Platform Engineer at RBC Capital Markets, creator of flux9s, and contributor to Flux and Flux Operator."
+keywords = ["kubernetes", "gitops", "rust", "flux", "flux9s", "platform engineering"]
+mainSections = ["posts"]
 author = "Dan Guns"
 images = ["/images/headshot.jpg"]
 
 defaultTheme = "auto"
 disableThemeToggle = false
 
-ShowReadingTime = false
+ShowReadingTime = true
 ShowShareButtons = false
-ShowPostNavLinks = false
+ShowPostNavLinks = true
 ShowBreadCrumbs = true
 ShowCodeCopyButtons = true
 ShowWordCount = false
@@ -43,37 +44,9 @@ hideSummary = false
 showtoc = false
 tocopen = false
 
-# Profile Mode Configuration
-[params.profileMode]
-enabled = true
-title = "Dan Guns"
-subtitle = "Kubernetes Platform Engineer"
-imageUrl = "/images/headshot.jpg"
-imageTitle = "Dan Guns"
-imageWidth = 200
-imageHeight = 200
-
-[[params.profileMode.buttons]]
-name = "About"
-url = "/about/"
-
-[[params.profileMode.buttons]]
-name = "Open Source"
-url = "/open-source/"
-
 [params.homeInfoParams]
-Title = "Hey there! 👋"
-Content = """
-I'm **Dan Guns**, a Kubernetes Platform Engineer at RBC. 
-
-I'm an NSCC IT Programming graduate who loves problem solving, coding, and learning about cool tools like Kubernetes!
-
-Check out my projects on [GitHub](https://github.com/dgunzy/) or connect with me on [LinkedIn](https://www.linkedin.com/in/daniel-guns-901342257/).
-"""
-imageUrl = "/images/headshot1.jpg"
-imageWidth = 200
-imageHeight = 200
-imageTitle = "Dan Guns"
+Title = "Dan Guns"
+Content = "I'm a Kubernetes Platform Engineer at RBC Capital Markets in Halifax, Nova Scotia. I work on flux9s, a terminal UI for Flux written in Rust, and contribute to Flux and Flux Operator."
 
 [[params.socialIcons]]
 name = "github"
@@ -81,7 +54,7 @@ url = "https://github.com/dgunzy/"
 
 [[params.socialIcons]]
 name = "linkedin"
-url = "https://www.linkedin.com/in/daniel-guns-901342257/"
+url = "https://www.linkedin.com/in/danguns/"
 
 [menu]
 [[menu.main]]

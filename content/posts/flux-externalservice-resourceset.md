@@ -2,7 +2,7 @@
 title: "API-Driven GitOps with Flux Operator's ExternalService"
 date: 2026-03-24
 draft: false
-description: "How ResourceSets and ExternalService input providers flip the GitOps model from push to pull — and why that matters at scale."
+description: "Using an internal API to supply configuration to Flux ResourceSets."
 tags: ["flux", "kubernetes", "gitops", "platform-engineering"]
 ---
 
@@ -20,9 +20,9 @@ Standard Flux works great: point it at a Git repo, it reconciles your cluster. B
 - Your Git repo becomes an inventory file that's always slightly behind, or ahead of reality
 - A separate system (CMDB, Ansible inventory, internal API) is the _actual_ source of truth — you're just manually syncing to Git
 
-## The pull-based alternative
+## Pulling inputs from an API
 
-Flux Operator's ResourceSet flips this. Instead of pushing config into Git for each cluster, each cluster pulls its desired state directly from your API on a schedule.
+Flux already pulls its configuration. ExternalService lets us also fetch inputs from an API on a schedule, while keeping the manifests in Git or OCI.
 
 {{< mermaid >}}
 flowchart LR
@@ -38,7 +38,7 @@ BL --> DB[(Source of Truth)]
 
 The two key pieces are:
 
-**ResourceSet** — a Flux-native CRD that renders Kubernetes manifests from templated data. Think of it like Helm but without the chart overhead, and with built-in inventory tracking and garbage collection. When a cluster is decommissioned, the next reconcile cycle automatically cleans up everything it created.
+**ResourceSet** — a Flux-native CRD that renders Kubernetes manifests from templated data. Think of it like Helm but without the chart overhead, and with built-in inventory tracking and garbage collection. It tracks the objects it manages and can delete ones that are no longer needed, depending on the lifecycle settings.
 
 **ResourceSetInputProvider (ExternalService)** — this is the bit I helped to contribute. It lets a ResourceSet poll an external HTTP API for its input data, rather than reading from a Git repo or an OCI artifact. Your API returns a JSON response in the format `{"inputs": [...]}` and Flux takes it from there.
 
@@ -69,7 +69,7 @@ Pair that with a ResourceSet that templates against the inputs, and you have a f
 
 ## Why this matters
 
-The real win isn't just less manual work — it's eliminating the divergence between your CMDB and your actual running state. With a push-based model, those two things are always slightly out of sync. With this, the API _is_ the source of truth, and the cluster _is_ the API's state made real. No reconciliation lag, no stale inventory.
+This means we don't need to copy the same cluster configuration from the API into Git. The API supplies the inputs, and Flux reconciles the cluster from them. Changes still take time to reach the cluster, depending on the polling interval, reconciliation, and whether the API is available.
 
 It also scales horizontally in a way that push-based models don't. Since clusters initiate requests rather than receiving pushes, you can have thousands of clusters without a centralized bottleneck. (And without your API having cluster admin credentials.)
 

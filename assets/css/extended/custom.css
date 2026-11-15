@@ -1,0 +1,14 @@
+.home-info { margin: 36px 0; min-height: auto; gap: 20px; }
+.intro-heading { display: flex; align-items: center; gap: 20px; }
+.intro-heading img { border-radius: 50%; object-fit: cover; }
+.intro-label { color: var(--secondary); font-size: 14px; letter-spacing: .025em; }
+.home-info .entry-header h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; max-width: 650px; }
+.home-info .entry-content { font-size: 18px; line-height: 1.7; }
+.intro-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.intro-links a { text-decoration: underline; text-underline-offset: 5px; }
+.featured-work { padding: 24px; border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 8px; background: var(--entry); }
+.featured-work h2 { margin: 8px 0; font-size: 22px; }
+.featured-work > p:last-child { color: var(--secondary); font-size: 16px; }
+.writing-heading { margin: 36px 0 20px; font-size: 24px; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+@media (max-width: 480px) { .intro-heading { align-items: flex-start; } .intro-heading img { width: 72px; height: 72px; } .featured-work { padding: 18px; } }

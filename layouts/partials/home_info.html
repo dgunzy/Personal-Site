@@ -1,0 +1,20 @@
+<section class="first-entry home-info" aria-labelledby="intro-title">
+  <div class="intro-heading">
+    <img src="{{ "images/headshot.jpg" | relURL }}" alt="Dan Guns" width="96" height="96">
+    <p class="intro-label">Halifax, Nova Scotia</p>
+  </div>
+  <header class="entry-header"><h1 id="intro-title">{{ site.Params.homeInfoParams.Title }}</h1></header>
+  <div class="entry-content">{{ site.Params.homeInfoParams.Content | markdownify }}</div>
+  <nav class="intro-links" aria-label="About Dan">
+    <a href="{{ "about/" | relURL }}">About me</a>
+    <a href="{{ "open-source/" | relURL }}">Open source</a>
+    <a href="https://github.com/dgunzy/">GitHub</a>
+    <a href="https://www.linkedin.com/in/danguns/">LinkedIn</a>
+  </nav>
+  <aside class="featured-work" aria-labelledby="featured-title">
+    <p class="intro-label">Writing elsewhere</p>
+    <h2 id="featured-title"><a href="https://fluxcd.io/blog/2026/10/flux9s-ga/">flux9s GA on the Flux blog</a></h2>
+    <p>I wrote about why I started flux9s and how it got to 1.0.</p>
+  </aside>
+</section>
+<h2 class="writing-heading">Latest writing</h2>
